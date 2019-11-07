@@ -1,0 +1,48 @@
+
+.passion{
+  height: 1000px;
+  padding-top: 200px;
+  font-family: 'Bad Script', cursive;
+  background-color: #FBC8A5;
+}
+.passion1 img{
+  width: 220px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.passion2 img{
+  width: 220px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.passion1 h1{
+  margin-top: 100px;
+  font-size: 20px;
+}
+.passion2 h1{
+  font-size: 20px;
+}
+@media (min-width: 992px) {
+.passion1 img{
+  width: 420px;
+}
+.passion2 img{
+  width: 420px;
+}
+.passion1 h1{
+  font-size: 30px;
+
+}
+.passion2 h1{
+  font-size: 30px;
+}
+.passion{
+  height: 600px;
+  padding-top: 50px;
+}
+.passion1 h1{
+  margin-top: 10px;
+}
+}

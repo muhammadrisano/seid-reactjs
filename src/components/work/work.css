@@ -1,0 +1,59 @@
+.work{
+  height: 600px;
+  background-image: url('../../assets/img/background-header.svg');
+  background-size: cover;
+}
+.work img{
+  width: 250px;
+}
+.work h1{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 55px;
+  font-weight: 600;
+  color: #F37820;
+  margin-right: auto;
+  margin-left: auto;
+}
+.work h1 span{
+  color: rgb(17, 16, 16);
+}
+.btn-talent{
+  background-color: orange;
+  font-weight: 500;
+  color: #fff;
+  font-size: 18px;
+  margin-right: 10px;
+  }
+  .btn-talent:hover{
+    color: white;
+    background-color: rgb(214, 141, 6);
+  }
+.btn-costumer{
+  border-color: orange;
+  color: orange;
+  background-color: white;
+  font-size: 18px;
+}
+.btn-costumer:hover{
+  color: orange;
+  background-color: rgb(250, 226, 182);
+}
+.work .button-container{
+  margin-top: 30px;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 992px) {
+  .work img{
+  width: 500px;
+}
+.work h1{
+  width: 200px;
+  margin-top: 120px;
+}
+.work{
+  padding-top: 50px;
+}
+}

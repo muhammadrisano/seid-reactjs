@@ -1,0 +1,40 @@
+.content-costumer{
+  padding-top: 50px;
+  background-color: #FDE3D1;
+}
+.content-costumer h3{
+  color: rgb(53, 52, 52);
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.box-content-customer{
+  height: 400px;
+  border-radius: 20px;
+  background-color: rgb(253, 247, 242);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.box-content-customer img{
+  width: 230px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.box-content-customer p{
+  text-align: center;
+  color: rgb(70, 69, 69);
+}
+.content-costumer h3 span{
+  font-weight: 600;
+  color: #F37820;
+}
+@media (min-width: 992px) {
+.content-costumer h3{
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+.content-costumer{
+  height: 650px;
+}
+}

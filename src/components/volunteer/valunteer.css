@@ -1,0 +1,21 @@
+.vulunteer-img img{
+  width: 400px;
+}
+.vulunteer-img{
+  display: flex;
+  justify-content: center;
+}
+.volunteer{
+  padding-top: 50px;
+  height: 600px;
+  background-image: url('../../assets/img/bg-content.svg');
+}
+ .volunteer h1{
+     color: #F37820;
+  margin-bottom: 50px;
+  font-size: 50px;
+ }
+ .volunteer h5{
+   color: rgba(0, 0, 0, 0.945);
+   font-weight: 400px;
+ }

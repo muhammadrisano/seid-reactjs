@@ -1,0 +1,52 @@
+.box-description{
+  min-height: 550px;
+  box-shadow: 0 -2px 3px rgba(0, 0, 0, .2);
+  padding: 50px;
+  border-radius: 7px;
+  position: relative;
+  top: -120px;
+  background-color: white;
+}
+
+.title-side-right{
+  position: relative;
+  width: 70px;
+  height: 5px;
+  background-image: linear-gradient( to right,  rgb(11, 133, 28), rgb(215, 218, 42));
+}
+.title-side-right::after{
+  width: 40px;
+  height: 5px;
+  content: "";
+  position: absolute;
+  top: 12px;
+  background-image: linear-gradient( to right,  rgb(11, 133, 28), rgb(215, 218, 42));
+}
+.title-side-left{
+  position: relative;
+  width: 70px;
+  height: 5px;
+  background-image: linear-gradient( to left,  rgb(11, 133, 28), rgb(215, 218, 42));
+}
+.title-side-left::after{
+  width: 40px;
+  height: 5px;
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 0px;
+  background-image: linear-gradient( to left,  rgb(11, 133, 28), rgb(215, 218, 42));
+}
+.title h2{
+  font-size: 42px;
+  color: green;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
