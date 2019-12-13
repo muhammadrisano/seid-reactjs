@@ -1,0 +1,33 @@
+.register{
+  background-image: url('../../assets/img/bg-content.svg');
+  background-size: 100vh;
+  padding-top: 100px;
+  font-family: 'Poppins', sans-serif;
+}
+.register .box-register{
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+}
+.box-register h1{
+  color: #F37820;
+}
+.box-register label{
+  font-size: 14px;
+  font-weight: 500;
+}
+.box-register input, .box-register select{
+  font-size: 14px;
+}
+.box-register .btn-daftar{
+  background-color: #F37820;
+  color: #fff;
+}
+.box-register a{
+  display: block;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #002344;
+  text-decoration: underline;
+}

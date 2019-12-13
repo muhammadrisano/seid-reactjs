@@ -12,19 +12,19 @@ const ContentCostumer =()=>{
         <div className="row">
           <div className="col-md-4 mb-4">
             <div className="box-content-customer">
-              <img src={require('../../assets/img/customer1.svg')} alt="customer1"/>
+              <img src={require('../../../../assets/img/customer1.svg')} alt="customer1"/>
               <p>Kita semua setuju anak muda adalah masa depan kita. Dengan percaya pada mereka, kita mencoba membangun masyarakat yang lebih baik.</p>
             </div>
           </div>
           <div className="col-md-4 mb-4">
             <div className="box-content-customer">
-              <img src={require('../../assets/img/customer2.svg')} alt="customer2"/>
+              <img src={require('../../../../assets/img/customer2.svg')} alt="customer2"/>
               <p>Tidak hanya anak muda yang penuh energi, telent Seid juga memiliki Hard Skill & Soft Skill yang baik untuk menyelesaikan tugas yang kamu berikan</p>
             </div>
           </div>
           <div className="col-md-4 mb-4">
             <div className="box-content-customer">
-              <img src={require('../../assets/img/custumer3.svg')} alt="customer3" />
+              <img src={require('../../../../assets/img/custumer3.svg')} alt="customer3" />
               <p>Setiap talent telah diverifikasi dengan baik oleh Seid secara personal, dan kami mengenal setiap individu yang  kami rekomendasikan</p>
             </div>
           </div>

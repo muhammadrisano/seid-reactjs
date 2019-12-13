@@ -1,7 +1,7 @@
 .content{
   background-image: url('../../assets/img/bg-content.svg');
   min-height: 650px;
-  padding-top: 40px; 
+  padding-top: 100px; 
 }
 .icon-img{
   width: 100%;
@@ -24,7 +24,7 @@
   margin-top: -30px;
 }
 .number h4{
-  color: white;
+  color: #1f2a36;
   margin-top: -40px;
   margin-left: -7px;
 }
@@ -45,6 +45,9 @@
   background-color: #FDE3D1;
   margin-right: auto;
   margin-left: auto;
+}
+.section-left h5{
+  color: #F37820 !important;
 }
 @media (min-width: 992px) {
 .content h1{

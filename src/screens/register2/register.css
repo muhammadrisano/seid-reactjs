@@ -1,0 +1,61 @@
+.register{
+  height: 100vh;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+}
+.register .layout-img{
+  display: none;
+  background: rgb(250, 232, 230);
+  width: 50%;
+  padding: 100px;
+  border-right: 2px dashed brown;
+}
+.register .form{
+  background: #fff;
+  width: 100%;
+  overflow: auto;
+  padding: 10px 35px;
+}
+label span{
+  color: rgb(179, 1, 1);
+}
+.box-img{
+  width: 420px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+}
+.container-bidang{
+  padding: 5px 0 5px 10px;
+}
+.box-btn-addbidang{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.box-btn-addbidang button{
+  border-width: 0;
+  border-radius: 5px;
+  padding: 7px 15px;
+  background: #FAE8E6;
+  color: black;
+}
+.logo-form-seid{
+  width: 150px !important;
+  margin-bottom: -20px;
+  margin-top: -20px;
+  padding: 0;
+}
+@media (min-width: 992px) {
+  .register .layout-img{
+    display: block;
+  }
+  .register .form{
+    width: 50%;
+  }
+  .register .form{
+  padding: 10px 100px;
+  }
+  .container-bidang{
+  padding: 10px 0 10px 30px;
+  }
+}

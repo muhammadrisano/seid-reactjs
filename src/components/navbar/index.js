@@ -3,7 +3,7 @@ import './navbar.css';
 
 const Navbar =()=>{
   return(
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-light navbar-costume fixed-top">
     <div className="container">
       <a className="navbar-brand" href="/">
         <img src={require('../../assets/img/logo.svg')} alt="" width="80"/>
@@ -13,20 +13,21 @@ const Navbar =()=>{
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          {/* <div className="link-left"> */}
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-          </li>
           <li className="nav-item">
-            <a className="nav-link" href="costumer">Costumer</a>
-          </li>
-            {/* </div> */}
-          {/* <li>
-            <a href="/login" className="btn btn-primary"> Masuk</a>
+            <a className="nav-link" href="/costumer">Costumer</a>
           </li>
           <li>
-            <a href="/logincostumers" className="btn btn-warning">Untuk Costumer</a>
-          </li> */}
+            <a href="/talent" className="nav-link">Talent</a>
+          </li>
+        </ul>
+          <ul className="navbar-nav">
+            <li>
+              <a href="/regcostum" className="nav-link">Daftar</a>
+            </li>
+          <li>
+            <a href="/register" className="btn btn-warning">Daftar Talent</a>
+          </li>
+            
         </ul>
         </div>
       </div>

@@ -9,7 +9,7 @@ const Header = ()=>{
             <img src={require('../../assets/img/logo.svg')} alt="" width="250" className="logo"/>
             <p>Platform yang memberikan ruang untuk tumbuh, dan berkembang, serta membantu kamu untuk mandiri secara finansial</p>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 section-right">
             <img src={require('../../assets/img/header.svg')} className="img-header" alt=""/>
           </div>
         </div>

@@ -2,6 +2,7 @@
   height: 600px;
   padding-top: 50px;
   background-color: #FBC8A5 ;
+  background: linear-gradient(#fff,#FBC8A5, #FBC8A5);
 }
 .logo{
   width: 120px;

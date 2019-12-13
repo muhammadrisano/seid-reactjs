@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
 import Navbar from '../../components/navbar';
-import Header from '../../components/header';
+// import Header from '../../components/header';
 // import Description from '../../components/description';
-import ContentHeader from '../../components/contentheader';
+// import ContentHeader from '../../components/contentheader';
 import Content from '../../components/content';
 import Volunteer from '../../components/volunteer';
 import Passion from '../../components/passion';
 import Work from '../../components/work';
-import './home.css';
+import './talent.css';
 import Footer from '../../components/footer';
-class Home extends Component{
+class Talent extends Component{
   render(){
     return(
       <div className="background">
         <Navbar/>
-        <Header/>
+        {/* <Header/> */}
         {/* <Description/> */}
-        <ContentHeader/>
+        {/* <ContentHeader/> */}
         <Content/>
         <Volunteer/>
         <Passion/>
@@ -26,4 +26,4 @@ class Home extends Component{
     )
   }
 }
-export default Home;
+export default Talent;

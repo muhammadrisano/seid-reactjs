@@ -1,0 +1,52 @@
+.regcostums{
+  height: 100vh;
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+}
+.regcostums .layout-img{
+  background: rgb(252, 203, 197);
+  width: 50%;
+  padding: 30px;
+  display: none;
+}
+.box-img{
+  width: 380px;
+  height: fit-content;
+}
+.regcostums .form{
+  background: #fff;
+  width: 100%;
+  overflow: auto;
+  padding: 10px 35px;
+}
+.content-register span{
+  color: #F37820;
+  font-weight: 600;
+}
+.box-btn-addbidang{
+  padding-top: 0;
+  padding-bottom: 15px;
+  padding-left: 20px;
+}
+.box-btn-addbidang button{
+  border-width: 0;
+  border-radius: 5px;
+  padding: 7px 15px;
+  background: #FAE8E6;
+  color: black;
+}
+.butuh-bidang{
+  padding-left: 20px;
+}
+.butuh-bidang label{
+  margin-top: 10px;
+}
+@media (min-width: 992px) {
+.regcostums .layout-img{
+  display: block;
+}
+.regcostums .form{
+  width: 50%;
+  padding: 10px 100px;
+}
+}
