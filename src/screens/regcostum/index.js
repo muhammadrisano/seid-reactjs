@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import './regcostum.css';
+import { inputAngketCostumer } from '../../redux/actions/forms';
+import { connect } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class Regcostum extends Component{
   constructor(){
@@ -43,7 +47,24 @@ class Regcostum extends Component{
       bidang_butuh2: this.state.bidang_butuh2,
       bidang_butuh3: this.state.bidang_butuh3,
     }
-    console.log(data)
+    this.props.dispatch(inputAngketCostumer(data))
+    .then((res)=>{
+      confirmAlert({
+        title: 'Terima Kasih',
+        message: 'Informasi ini akan kami proses untuk perkembangan Seid yang lebih baik. Kamu akan mendapatkan notifikasi dengan segera begitu Seid siap untuk digunakan.',
+        buttons: [
+          {
+            label: 'Oke',
+            onClick: () => {
+              this.props.history.push('/');
+            }
+          }
+        ]
+      });
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
   }
   render() {
     return (
@@ -226,5 +247,9 @@ class Regcostum extends Component{
     )
   }
 }
-
-export default Regcostum;
+const mapStateToProp = state => {
+  return {
+    formCostumer : state.forms.formCostumer,
+  }
+}
+export default connect(mapStateToProp)(Regcostum);

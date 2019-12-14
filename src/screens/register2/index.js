@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import '../register2/register.css';
+import { inputAngketTalent } from '../../redux/actions/forms';
+import { connect } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class Register extends Component{
   constructor() {
     super();
     this.state = {
-      name: 'ddf',
+      name: '',
       phone: '',
       medsos: '',
       usermedsos: '',
@@ -25,7 +29,7 @@ class Register extends Component{
       [e.target.name] : e.target.value
     })
   }
-  handleSubmit() {
+  handleSubmit = async() => {
     let data = {
       name: this.state.name,
       phone: this.state.phone,
@@ -41,6 +45,25 @@ class Register extends Component{
       volunteer: this.state.volunteer,
     }
     console.log(data);
+    await this.props.dispatch(inputAngketTalent(data))
+    .then((res)=>{
+      console.log(res)
+      confirmAlert({
+        title: 'Terima Kasih',
+        message: 'Informasi ini akan kami proses untuk perkembangan Seid yang lebih baik. Kamu akan mendapatkan notifikasi dengan segera begitu Seid siap untuk digunakan.',
+        buttons: [
+          {
+            label: 'Oke',
+            onClick: () => {
+              this.props.history.push('/');
+            }
+          }
+        ]
+      });
+    }) 
+    .catch((err)=>{
+      console.log(err)
+    })
   }
   handleBtnAddBidang(e) {
     e.preventDefault()
@@ -143,7 +166,7 @@ class Register extends Component{
                   <option value="Lainnya">lainnya</option>
                 </select>
                 {this.state.bidang_parttime === 1 ?
-                <div className="box-btn-addbidang">
+                <div className="box-btn-addbidang-talent">
                   <button type="button" onClick={(e)=> this.handleBtnAddBidang(e)}>Tambah Bidang Part Time baru</button>
                 </div>
                 :
@@ -212,10 +235,34 @@ class Register extends Component{
               <button type="button" className="btn btn-warning" onClick={()=>this.handleSubmit()}>Simpan</button>
             </div>
           </form>
-        </div>        
+        </div> 
+    
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>       
       </div>
     )
   }
 }
-
-export default Register;
+const mapStateToProps = state =>{
+  return{
+    formTalent: state.forms.formTallent,
+  }
+}
+export default connect(mapStateToProps)(Register);
