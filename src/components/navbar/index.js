@@ -22,7 +22,7 @@ const Navbar =()=>{
         </ul>
           <ul className="navbar-nav">
             <li>
-              <a href="/regcostum" className="nav-link">Daftar</a>
+              <a href="/regcostum" className="nav-link">Daftar Costumer</a>
             </li>
           <li>
             <a href="/register" className="btn btn-warning">Daftar Talent</a>

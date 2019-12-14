@@ -41,6 +41,7 @@
   border-radius: 6px;
   margin: 10px;
   background-color: #F37820;
+  cursor: pointer;
 }
 .img-landing{
   width: 350px;

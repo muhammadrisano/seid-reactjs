@@ -28,11 +28,11 @@ label span{
 .container-bidang{
   padding: 5px 0 5px 10px;
 }
-.box-btn-addbidang{
+.box-btn-addbidang-talent{
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.box-btn-addbidang button{
+.box-btn-addbidang-talent button{
   border-width: 0;
   border-radius: 5px;
   padding: 7px 15px;
