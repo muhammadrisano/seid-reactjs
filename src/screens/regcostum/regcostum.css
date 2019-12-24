@@ -41,6 +41,12 @@
 .butuh-bidang label{
   margin-top: 10px;
 }
+.inputbidang{
+  margin-top: 5px;
+}
+.input-bidang{
+  margin-top: 5px;
+}
 @media (min-width: 992px) {
 .regcostums .layout-img{
   display: block;

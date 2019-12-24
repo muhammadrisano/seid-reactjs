@@ -6,7 +6,7 @@ const Footer=()=>{
       <div className="container">
         <div className="row">
           <div className="col-md-6 footer-left">
-            <img src={require('../../assets/img/money.svg')} alt="img-footer"/>
+            <img src={require('../../assets/img/img-footer.svg')} alt="img-footer"/>
           </div>
           <div className="col-md-6 footer-right">
             <img src={require('../../assets/img/logo.svg')} alt="logo" className="logo"/>
@@ -15,6 +15,9 @@ const Footer=()=>{
               <p className="copyright">@2019 Seid. All Right Reserved</p>
               <p className="footer-item1">#Groundtogrow</p>
               <p className="footer-item2">omg@seeds-id.com</p>
+            </div>
+            <div className="section-btn-img">
+              <img src={require('../../assets/img/button-footer.svg')} alt="btn" />
             </div>
           </div>
         </div>

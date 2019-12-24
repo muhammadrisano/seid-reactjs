@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
-import Navbar from '../../components/navbar/index';
+import Navbar2 from '../../components/Navbar2';
 import Header from './component/header';
+import Footer from '../../components/footer';
 
 class LandingPage extends Component{
   render() {
     return(
       <div>
-        <Navbar/>
+        <Navbar2/>
         <div className="container">
         <Header/>
         </div>
+        <Footer/>
       </div>
     )
   }

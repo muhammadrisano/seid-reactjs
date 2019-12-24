@@ -4,6 +4,7 @@ import { inputAngketCostumer } from '../../redux/actions/forms';
 import { connect } from 'react-redux';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import {Link} from 'react-router-dom';
 
 class Regcostum extends Component{
   constructor(){
@@ -15,12 +16,16 @@ class Regcostum extends Component{
       institusi: '',
       what_seid: '',
       where_seid: '',
-      butuh_talent: '',
+      butuhRelawan: '',
       with_relawan: '',
-      bidang_butuh1: '',
-      bidang_butuh2: '',
-      bidang_butuh3: '',
+      butuhBidang1: '',
+      butuhBidang2: '',
+      butuhBidang3: '',
       jumlah_bidang: 1,
+      lainnyabidang1: '',
+      lainnyabidang2: '',
+      lainnyabidang3: '',
+      lainnyarelawan: '',
     }
   }
   handleChange(e) {
@@ -39,14 +44,13 @@ class Regcostum extends Component{
       email: this.state.email,
       phone: this.state.phone,
       institusi: this.state.institusi,
-      what_seid: this.state.what_seid,
-      where_seid: this.state.where_seid,
-      butuh_talent: this.state.butuh_talent,
+      butuh_relawan: this.state.butuhRelawan === 'Lainnya' ? this.state.lainnyarelawan : this.state.butuhRelawan,
       with_relawan: this.state.with_relawan,
-      bidang_butuh1: this.state.bidang_butuh1,
-      bidang_butuh2: this.state.bidang_butuh2,
-      bidang_butuh3: this.state.bidang_butuh3,
+      bidang_butuh1: this.state.butuhBidang1 === 'Lainnya' ? this.state.lainnyabidang1 : this.state.butuhBidang1,
+      bidang_butuh2: this.state.butuhBidang2 === 'Lainnya' ? this.state.lainnyabidang2 : this.state.butuhBidang2,
+      bidang_butuh3: this.state.butuhBidang3 === 'Lainnya' ? this.state.lainnyabidang3 : this.state.butuhBidang3,
     }
+    console.log(data);
     this.props.dispatch(inputAngketCostumer(data))
     .then((res)=>{
       confirmAlert({
@@ -76,44 +80,33 @@ class Regcostum extends Component{
           <p className="content-register"><span>SEID</span> menghubungkan kamu dengan anak muda pekerja paruh waktu, hingga relawan yang akan membantu projek sosialmu.</p>
         </div>
         <div className="form">
-          <a href="/">
+          <Link to="/">
             <img src={require('../../assets/img/new logo-02.svg')} alt="logo-seid" className="logo-form-seid" />
-          </a>
+          </Link>
           <h3 className="text-center p-4">Form Constumer Seid</h3>
           <form action="#">
             <div className="form-group">
-              <label htmlFor="name">Name Kamu <span>*</span></label>
+              <label htmlFor="name">Nama Kamu</label>
               <input type="text" className="form-control" name="name" id="name" onChange={(e)=>this.handleChange(e)} value={this.state.name} />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Alamat Email <span>*</span></label>
+              <label htmlFor="email">Alamat Email</label>
               <input type="text" className="form-control" name="email" id="email" onChange={(e)=>this.handleChange(e)} value={this.state.email}/>
             </div>
             <div className="form-group">
-              <label htmlFor="phone">No. Handphone <span>*</span></label>
+              <label htmlFor="phone">No. Handphone</label>
               <input type="text" className="form-control" name="phone" id="phone" onChange={(e)=>this.handleChange(e)} value={this.state.phone} />
             </div>
             <div className="form-group">
-              <label htmlFor="institusi">Nama Institusi / Organisasi <span>*</span></label>
+              <label htmlFor="institusi">Nama Institusi / Organisasi</label>
               <input type="text" className="form-control" name="institusi" id="institusi" onChange={(e)=>this.handleChange(e)} value={this.state.institusi} />
             </div>
             <div className="form-group">
-              <label htmlFor="what_seid">Apa yang kamu ketahui tentang Seid <span>*</span></label>
-              <input type="text" className="form-control" name="what_seid" id="what_seid" onChange={(e)=>this.handleChange(e)} value={this.what_seid}/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="where_seid">Kenal Seid darimana ? <span>*</span></label>
-              <select name="where_seid" id="where_seid" onChange={(e)=>this.handleChange(e)} className="form-control">
-                <option value="website">Website</option>
-                <option value="teman">Teman</option>
-                <option value="social media">Sosial Media</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="butuh_talent">Seid Talent di bidang apa yang kamu butuhkan ? (Max 3) <span>*</span></label>
+              <label htmlFor="butuh_bidang">Seid Talent di bidang apa yang kamu butuhkan ? (Max 3)</label>
               <div className="butuh-bidang">
                 <label htmlFor="butuhBidang1">Butuh dibidang 1</label>
                 <select name="butuhBidang1" id="butuhBidang1" className="form-control" onChange={(e)=>this.handleChange(e)}>
+                  <option value="" selected disabled>- pilih -</option>
                   <option value="Guru Private Akademis (ex: Matematika, Sains, dll)">Guru Private Akademis (ex: Matematika, Sains, dll)</option>
                   <option value="Guru Private Minat Bakat (ex: Musik, Komputer, dll)">Guru Private Minat Bakat (ex: Musik, Komputer, dll)</option>
                   <option value="Guru Private Agama (ex: Iqra, Alqur'an, Sekolah Minggu, dll)">Guru Private Agama (ex: Iqra, Alqur'an, Sekolah Minggu, dll)</option>
@@ -142,11 +135,16 @@ class Regcostum extends Component{
                   <option value="Fotografer">Fotografer</option>
                   <option value="Lainnya">Lainnya</option>
                 </select>
-              </div>
+                {this.state.butuhBidang1 ==='Lainnya'?
+                <input type="text" className="form-control input-bidang" name="lainnyabidang1" placeholder="Silahkan isi lainnya disini" onChange={(e) => this.handleChange(e)} value={this.state.lainnyabidang1}/>
+                :<div></div>
+                }
+                </div>
               {this.state.jumlah_bidang >=2 ?
               <div className="butuh-bidang">
                 <label htmlFor="butuhBidang2">Butuh dibidang 2</label>
                 <select name="butuhBidang2" id="butuhBidang2" className="form-control" onChange={(e) => this.handleChange(e)}>
+                  <option value="" selected disabled>- pilih -</option>
                   <option value="Guru Private Akademis (ex: Matematika, Sains, dll)">Guru Private Akademis (ex: Matematika, Sains, dll)</option>
                   <option value="Guru Private Minat Bakat (ex: Musik, Komputer, dll)">Guru Private Minat Bakat (ex: Musik, Komputer, dll)</option>
                   <option value="Guru Private Agama (ex: Iqra, Alqur'an, Sekolah Minggu, dll)">Guru Private Agama (ex: Iqra, Alqur'an, Sekolah Minggu, dll)</option>
@@ -175,12 +173,16 @@ class Regcostum extends Component{
                   <option value="Fotografer">Fotografer</option>
                   <option value="Lainnya">Lainnya</option>
                 </select>
-              </div>
+                  {this.state.butuhBidang2 === 'Lainnya'?
+                    <input type="text" className="form-control input-bidang" placeholder="Silahkan isi lainnya disini" name="lainnyabidang2" onChange={(e) => this.handleChange(e)} value={this.state.lainnyabidang2} />
+                  :<div></div>}
+                </div>
               : <div></div>}
               {this.state.jumlah_bidang >=3 ?
               <div className="butuh-bidang">
                 <label htmlFor="butuhBidang3">Butuh dibidang 3</label>
                 <select name="butuhBidang3" id="butuhBidang3" className="form-control" onChange={(e) => this.handleChange(e)}>
+                  <option value="" disabled selected>- pilih -</option>
                   <option value="Guru Private Akademis (ex: Matematika, Sains, dll)">Guru Private Akademis (ex: Matematika, Sains, dll)</option>
                   <option value="Guru Private Minat Bakat (ex: Musik, Komputer, dll)">Guru Private Minat Bakat (ex: Musik, Komputer, dll)</option>
                   <option value="Guru Private Agama (ex: Iqra, Alqur'an, Sekolah Minggu, dll)">Guru Private Agama (ex: Iqra, Alqur'an, Sekolah Minggu, dll)</option>
@@ -209,7 +211,10 @@ class Regcostum extends Component{
                   <option value="Fotografer">Fotografer</option>
                   <option value="Lainnya">Lainnya</option>
                 </select>
-              </div>
+                  {this.state.butuhBidang3 === 'Lainnya'?
+                    <input type="text" className="form-control input-bidang" name="lainnyabidang3" placeholder="Silahkan isi lainnya disini" onChange={(e) => this.handleChange(e)} value={this.state.lainnyabidang3} />
+                  :<div></div>}
+                  </div>
               : <div></div>}
             </div>
             {this.state.jumlah_bidang<3 ?
@@ -218,15 +223,18 @@ class Regcostum extends Component{
             </div>
             : <div></div>}
             <div className="form-group">
-              <label htmlFor="with_relawan">Apakah kamu juga mencari Seid Talent untuk menjadi Relawan <span>*</span></label>
+              <label htmlFor="with_relawan">Apakah kamu juga mencari Seid Talent untuk menjadi Relawan</label>
               <select name="with_relawan" id="with_relawan" className="form-control" onChange={(e)=>this.handleChange(e)}>
+                <option value="" disabled selected>- pilih -</option>
                 <option value="ya">ya</option>
                 <option value="tidak">tidak</option>
               </select>
             </div>
+            {this.state.with_relawan ==='ya'?
             <div className="form-group">
-              <label htmlFor="bidang_butuh">Relawan di bidang apa yang kamu butuhkan ? <span>*</span></label>
-              <select name="bidang_butuh" id="bidang_butuh" className="form-control" onChange={(e)=>this.handleChange(e)}>
+              <label htmlFor="butuhRelawan">Relawan di bidang apa yang kamu butuhkan ?</label>
+              <select name="butuhRelawan" id="butuhRelawan" className="form-control" onChange={(e)=>this.handleChange(e)}>
+                <option value="" selected disabled>- pilih -</option>
                 <option value="Edukasi">Edukasi</option>
                 <option value="Perlindungan Stawa & Konservasi">Perlindungan Stawa & Konservasi</option>
                 <option value="Kesenian & Kebudayaan">Kesenian & Kebudayaan</option>
@@ -237,7 +245,12 @@ class Regcostum extends Component{
                 <option value="Layanan Masyarakat">Layanan Masyarakat</option>
                 <option value="Lainnya">Lainnya</option>
               </select>
-            </div>
+                {this.state.butuhRelawan === 'Lainnya'?
+                <input type="text" className="form-control input-bidang" name="lainnyarelawan" placeholder="Silahkan isi lainnya disini" onChange={(e) => this.handleChange(e)} value={this.state.lainnyarelawan}/>
+                :<div></div>
+                }
+              </div>:<div></div>
+            }
             <div className="form-group">
               <button type="button" onClick={()=>this.handleSubmit()} className="btn btn-warning">Simpan</button>
             </div>

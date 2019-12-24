@@ -4,6 +4,7 @@ const Passion =()=>{
   return(
     <div className="passion">
       <div className="container">
+        <h1 className="title-selt text-center mb-4">Self Development</h1>
         <div className="row">
           <div className="col-md-6">
             <div className="passion1">

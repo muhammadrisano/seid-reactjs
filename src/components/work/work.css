@@ -33,7 +33,10 @@
   border-color: orange;
   color: orange;
   background-color: white;
-  font-size: 18px;
+  font-size: 20px;
+  padding: 10px 50px;
+  border-radius: 10px;
+  font-weight: 600;
 }
 .btn-costumer:hover{
   color: orange;
@@ -55,6 +58,7 @@
 @media (min-width: 992px) {
   .work img{
   width: 500px;
+  margin-left: 50px;
 }
 .work h1{
   width: 200px;

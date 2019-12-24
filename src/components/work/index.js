@@ -1,19 +1,20 @@
 import React from 'react';
 import './work.css';
-const Work =()=>{
+import {Link} from 'react-router-dom';
+const Work =(props)=>{
   return(
     <div className="work">
     <div className="container">
       <div className="box-work">
       <div className="row">
         <div className="col-md-6">
-          <img src={require('../../assets/img/volunteer.svg')} alt="work"/>
+          <img src={require('../../assets/img/work.svg')} alt="work"/>
         </div>
         <div className="col-md-6 work-right">
-            <h1>HOW'S <span>WORK</span></h1>
+            <h1>How's it <span>WORK</span></h1>
             <div className="button-container">
-            <a href="/login" className="btn btn-talent">Talent</a>
-            <a href="/login" className="btn btn-costumer">Costumer</a>
+              {/* <Link to="/register" className="btn btn-talent">Talent</Link> */}
+              <Link to={props.link} className="btn btn-costumer">{props.button}</Link>
             </div>
         </div>
       </div>

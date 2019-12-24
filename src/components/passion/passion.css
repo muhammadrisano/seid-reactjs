@@ -1,9 +1,12 @@
 
 .passion{
-  height: 1000px;
   padding-top: 200px;
   font-family: 'Bad Script', cursive;
   background-color: #fff;
+  margin-bottom: 40px;
+}
+.passion h1{
+  font-size: 43px;
 }
 .passion1 img{
   width: 220px;
@@ -18,13 +21,21 @@
   margin-right: auto;
 }
 .passion1 h1{
-  margin-top: 100px;
+  margin-top: 25px;
   font-size: 20px;
 }
 .passion2 h1{
   font-size: 20px;
 }
+.title-selt{
+   color: #F37820;
+   font-family: roboto;
+   font-size: 50px;
+}
 @media (min-width: 992px) {
+.passion h1{
+  font-size: 47px;
+}
 .passion1 img{
   width: 420px;
 }
