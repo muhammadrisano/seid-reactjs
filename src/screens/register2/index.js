@@ -4,6 +4,7 @@ import { inputAngketTalent } from '../../redux/actions/forms';
 import { connect } from 'react-redux';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import {Link} from 'react-router-dom';
 
 class Register extends Component{
   constructor() {
@@ -11,17 +12,18 @@ class Register extends Component{
     this.state = {
       name: '',
       phone: '',
-      medsos: '',
+      medsos: null,
       usermedsos: '',
       tgl_lahir: '',
       school: '',
-      how_seid: '',
-      where_seid: '',
       bidang1:'',
+      lainnyabidang1:'',
       bidang2:'',
+      lainnyabidang2:'',
       volunteer: '',
       bidang_parttime: 1,
-      minat_volunteer: '',
+      minat_volunteer: null,
+      lainnyavolunter:''
     }
   }
   handleChange(e) {
@@ -37,12 +39,10 @@ class Register extends Component{
       usermedsos: this.state.usermedsos,
       tgl_lahir: this.state.tgl_lahir,
       school : this.state.school,
-      how_seid : this.state.how_seid,
-      where_seid: this.state.where_seid,
-      bidang1: this.state.bidang1,
-      bidang2: this.state.bidang2,
+      bidang1: this.state.bidang1 ==='Lainnya'?this.state.lainnyabidang1:this.state.bidang1,
+      bidang2: this.state.bidang2 ==='Lainnya'?this.state.lainnyabidang2:this.state.bidang2,
       minat_volunteer: this.state.minat_volunteer,
-      volunteer: this.state.volunteer,
+      volunteer: this.state.volunteer ==='Lainnya'?this.state.lainnyavolunter:this.state.volunteer,
     }
     console.log(data);
     await this.props.dispatch(inputAngketTalent(data))
@@ -81,23 +81,23 @@ class Register extends Component{
           <p className="text-center mt-3">Menjadi Perubahan yang lebih baik</p>
         </div>
         <div className="form">
-          <a href="/">
+          <Link to="/">
           <img src={require('../../assets/img/new logo-02.svg')} alt="logo-seid" className="logo-form-seid" />
-          </a>
+          </Link>
           <form action="">
           <h3 className="text-center p-4">
             Form Talent Seid
             </h3>
             <div className="form-group">
-              <label htmlFor="name">Nama Kamu <span>*</span></label>
+              <label htmlFor="name">Nama Kamu</label>
               <input type="text" className="form-control" name="name" id="name" value={this.state.name} onChange={(e) => this.handleChange(e)}/>
             </div>
             <div className="form-group">
-              <label htmlFor="phone">No. Handphone <span>*</span></label>
+              <label htmlFor="phone">No. Handphone</label>
               <input type="text" className="form-control" name="phone" id="phone" value={this.state.phone} onChange={(e)=>this.handleChange(e)}/>
             </div>
             <div className="form-group">
-              <label htmlFor="medsos">Media Sosial Kamu <span>*</span></label>
+              <label htmlFor="medsos">Media Sosial Kamu</label>
               <select name="medsos" id="medsos" className="form-control" onChange={(e)=>this.handleChange(e)}>
                 <option value="">- Pilih -</option>
                 <option value="Instagram">Instagram</option>
@@ -105,35 +105,23 @@ class Register extends Component{
                 <option value="Twitter">Twitter</option>
               </select>
             </div>
+            {this.state.medsos ?
             <div className="form-group">
-              <label htmlFor="usermedsos">Username / Email Sosial <span>*</span></label>
+              <label htmlFor="usermedsos">Username / Email Sosial</label>
               <input type="text" className="form-control" name="usermedsos" id="usermedsos" onChange={(e)=>this.handleChange(e)} value={this.state.usermedsos}/>
-            </div>
+            </div>:<div></div>
+            }
             <div className="form-group">
-              <label htmlFor="tgl_lahir">Tanggal Lahir <span>*</span></label>
+              <label htmlFor="tgl_lahir">Tanggal Lahir</label>
               <input type="date" id="tgl_lahir" name="tgl_lahir" className="form-control" onChange={(e)=>this.handleChange(e)}/>
             </div>
             <div className="form-group">
-              <label htmlFor="school">Nama Sekolah / Universitas <span>*</span></label>
+              <label htmlFor="school">Nama Sekolah / Universitas</label>
               <input type="text" id="school" name="school" className="form-control" onChange={(e)=>this.handleChange(e)} value={this.state.school}/>
             </div>
+
             <div className="form-group">
-              <label htmlFor="how_seid">Apa yang kamu ketahui tentang Seid<span>*</span></label>
-              <input type="text" id="how_seid" name="how_seid" className="form-control" onChange={(e)=>this.handleChange(e)} value={this.state.how_seid}/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="where_seid">Kenal Seid darimana ?<span>*</span></label>
-              <select name="where_seid" id="where_seid" className="form-control" onChange={(e)=>this.handleChange(e)} value={this.state.where_seid}>
-                <option value="">- Pilih -</option>
-                <option value="website">Website</option>
-                <option value="workshop">Workshop</option>
-                <option value="teman">teman</option>
-                <option value="sekolah">Sekolah / Kampus</option>
-                <option value="lainnya">Lainnya</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label htmlFor="bidang">Bidang Part time yang kamu minati (Max 2) <span>*</span></label>
+              <label htmlFor="bidang">Bidang Part time yang kamu minati (Max 2)</label>
               <div className="container-bidang">
                 <label htmlFor="bidang1">Bidang 1</label>
                 <select name="bidang1" id="bidang1" className="form-control" onChange={(e)=>this.handleChange(e)}>
@@ -165,6 +153,10 @@ class Register extends Component{
                   <option value="Fotografer">Fotografer</option>
                   <option value="Lainnya">lainnya</option>
                 </select>
+                {this.state.bidang1 === 'Lainnya'?
+                <input type="text" className="form-control inputbidang" placeholder="isikan lainnya disini" name="lainnyabidang1" onChange={(e)=>this.handleChange(e)}/>
+                :<div></div>
+                }
                 {this.state.bidang_parttime === 1 ?
                 <div className="box-btn-addbidang-talent">
                   <button type="button" onClick={(e)=> this.handleBtnAddBidang(e)}>Tambah Bidang Part Time baru</button>
@@ -205,19 +197,24 @@ class Register extends Component{
                   <option value="Fotografer">Fotografer</option>
                   <option value="Lainnya">lainnya</option>
                 </select>
+                {this.state.bidang2 === 'Lainnya' ?
+                  <input type="text" className="form-control inputbidang" placeholder="isikan lainnya disini" name="lainnyabidang2" onChange={(e) => this.handleChange(e)} />
+                  : <div></div>
+                }
               </div>
               : <div></div>}
             </div>
             <div className="form-group">
-              <label htmlFor="minat_volunteer">Apakah kamu berminat untuk menjadi Volunteer ? <span>*</span></label>
+              <label htmlFor="minat_volunteer">Apakah kamu berminat untuk menjadi Volunteer ?</label>
               <select name="minat_volunteer" id="minat_volunteer" className="form-control" onChange={(e)=>this.handleChange(e)}>
                 <option value="">- Pilih -</option>
                 <option value="ya">Ya</option>
                 <option value="tidak">Tidak</option>
               </select>
             </div>
+            {this.state.minat_volunteer ==='ya'?
             <div className="form-group">
-              <label htmlFor="bidang_volunter">Jika ya bidang volunteer apa yang kamu minati ?<span>*</span></label>
+              <label htmlFor="bidang_volunter">Jika ya bidang volunteer apa yang kamu minati </label>
               <select name="volunteer" id="volunteer" className="form-control" onChange={(e)=>this.handleChange(e)}>
                   <option value="">- Pilih -</option>
                   <option value="Edukasi">Edukasi</option>
@@ -230,32 +227,16 @@ class Register extends Component{
                   <option value="Layanan Masyarakat">Layanan Masyarakat</option>
                   <option value="Lainnya">Lainnya</option>
                 </select>
-            </div>
+                {this.state.volunteer === 'Lainnya'?
+                <input type="text" className="form-control inputbidang" name="lainnyavolunter" onChange={(e) => this.handleChange(e)} placeholder="silahkan isi lainnya disini" />
+                :<div></div>}
+                </div>
+            :<div></div>}
             <div className="form-group">
               <button type="button" className="btn btn-warning" onClick={()=>this.handleSubmit()}>Simpan</button>
             </div>
           </form>
-        </div> 
-    
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>       
+        </div>            
       </div>
     )
   }
