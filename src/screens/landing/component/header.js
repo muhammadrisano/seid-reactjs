@@ -26,10 +26,10 @@ class Header extends Component{
         </div>
       </div>
         <div className="box-button-landing">
-          <h6 className="ml-2">Join Now !</h6>
+          <h6 className="ml-2 join-now">Join Now !</h6>
           <Link to="/costumer"><button className="btn-seid">Costumer</button></Link>
           <p className="text-center or">Or</p>
-          <Link to="/talent"><button className="btn-seid">Talent</button></Link>
+          <Link to="/talent"><button className="btn-seid btn-talent">Talent</button></Link>
         </div>
       </>
     )

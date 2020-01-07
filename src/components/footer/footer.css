@@ -1,5 +1,5 @@
 .footer{
-  height: 600px;
+  height: 620px;
   padding-top: 50px;
   background-color: #FBC8A5 ;
   background: linear-gradient(#fff,#FBC8A5, #FBC8A5);
@@ -16,7 +16,7 @@
   width: 250px;
   text-align: center;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-right: auto;
   margin-left: auto;
   line-height: 40px;
@@ -47,7 +47,10 @@
 .section-btn-img{
   width: 260px;
   margin: 0 auto;
-  margin-top: -40px;
+  margin-top: -30px;
+}
+.content-footer{
+  margin-top: -30px;
 }
 @media (min-width: 992px) {
 .logo{

@@ -41,10 +41,12 @@
   font-weight: 600;
   margin-right: 20px;
   width: 100%;
+  text-align: center;
 }
 .btn-seid{
   border-width: 0;
-  padding: 12px 30px;
+  padding: 12px 15px;
+  /* padding: 12px 30px; */
   border-radius: 6px;
   margin: 10px;
   background-color: #F37820;
@@ -81,6 +83,10 @@
   width: 250px !important;
   margin-bottom:-50px;
 }
+.btn-talent{
+  padding-right: 30px;
+  padding-left: 30px;
+}
 @media (min-width: 992px) {
   .header-landing{
     display: flex;
@@ -102,10 +108,18 @@
   .box-button-landing{
   align-items: center;
   flex-direction: row;
-  width: 500px;
+  width: 600px;
   margin: 45px auto;
   }
   .box-button-landing h6{
   width: fit-content !important;
+  text-align: left;
+  }
+  .btn-talent{
+  padding-right: 45px !important;
+  padding-left: 45px !important;
+}
+.btn-seid{
+  padding: 12px 30px;
   }
 }

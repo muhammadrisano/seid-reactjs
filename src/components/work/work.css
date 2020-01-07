@@ -54,6 +54,7 @@
   border-bottom-right-radius: 75px;
   background-image: linear-gradient(90deg, rgba(213,106,37,1) 0%, rgba(250,190,151,1) 100%);
   padding-bottom: 50px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, .2);
 }
 @media (min-width: 992px) {
   .work img{
